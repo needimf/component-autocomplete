@@ -2,7 +2,7 @@
   "name": "component-autocomplete",
   "displayName": "Component Autocomplete",
   "description": "Provides scaffolded React component import completion in visual studio code.",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "publisher": "needimf",
   "repository": {
     "type": "git",
