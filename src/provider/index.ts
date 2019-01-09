@@ -12,8 +12,6 @@ export class ComponentProvider implements vs.CompletionItemProvider {
   insideString: boolean;
 
   provideCompletionItems(document: vs.TextDocument, position: vs.Position, token: vs.CancellationToken): Thenable<vs.CompletionItem[]> {
-    vs.window.showInformationMessage('hi');
-
     var currentLine = document.getText(document.lineAt(position).range);
     var self = this;
 
@@ -29,21 +27,21 @@ export class ComponentProvider implements vs.CompletionItemProvider {
     const userInput = this.getUserInput(currentLine, position.character);
 
     const workspaceRootPath = vs.workspace.workspaceFolders ? vs.workspace.workspaceFolders[0] : null;
-    // fs.readFile(`${workspaceRootPath}/generator-creditor`)
 
-    vs.window.showInformationMessage(`got root path`);
-    vs.window.showInformationMessage(`${JSON.stringify(workspaceRootPath)}`);
-    vs.window.showInformationMessage(`${workspaceRootPath.uri.fsPath}`);
-    // const manifestTemplate = require(`${workspaceRootPath.uri.fsPath}/generator-creditor/manifest.js`);
+    const fileToString = fs.readFileSync(`${workspaceRootPath.uri.fsPath}/generator-creditor/.temp/manifest.js`, 'utf8').split('export default ');
+    const manifestString = fileToString[1].replace(/\r?\n|\r|;/g, "");
+    const manifest = JSON.parse(manifestString);
     
-    const paths = Object.keys(manifestTemplate);
-    
-    vs.window.showInformationMessage(`${paths}`);
+    const components = Object.keys(manifest).filter((key) => manifest[key] === 'component' && key.includes(userInput));
 
-    var completion = new vs.CompletionItem('thisisatest');
-    completion.label = 'helphelphelp'
+    return Promise.resolve(components.map((component) => {
+      const suggestion = new vs.CompletionItem(component)
+      suggestion.label = component;
+      suggestion.detail = 'Scaffold';
+      suggestion.insertText = `${component} />`;
 
-    return Promise.resolve([completion]);
+      return suggestion;
+    }));
   }
 
   getUserInput(currentLine: string, currentPosition: number): string {

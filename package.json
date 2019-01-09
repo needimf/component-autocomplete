@@ -1,7 +1,7 @@
 {
   "name": "component-autocomplete",
   "displayName": "Component Autocomplete",
-  "description": "Provides scaffolded React component import completion in visual studio code.",
+  "description": "Autocompletes importing of scaffolded front end components",
   "version": "1.0.0",
   "publisher": "needimf",
   "repository": {
@@ -15,7 +15,9 @@
   "engines": {
     "vscode": "^1.19.0"
   },
-  "keywords": ["multi-root ready"],
+  "keywords": [
+    "multi-root ready"
+  ],
   "categories": [
     "Other"
   ],
