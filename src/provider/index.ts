@@ -20,10 +20,6 @@ export class ComponentProvider implements vs.CompletionItemProvider {
     this.currentPosition = position.character;
 
     // here is where I would check if I should give the completion items
-    const array = [];
-    array.push(this.getUserInput(currentLine, position.character));
-    vs.window.showInformationMessage(`${array}`);
-
     const userInput = this.getUserInput(currentLine, position.character);
 
     const workspaceRootPath = vs.workspace.workspaceFolders ? vs.workspace.workspaceFolders[0] : null;
