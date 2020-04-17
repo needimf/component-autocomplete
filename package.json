@@ -3,14 +3,14 @@
   "displayName": "Component Autocomplete",
   "description": "Autocompletes importing of scaffolded front end components",
   "version": "1.0.0",
-  "publisher": "needimf",
+  "publisher": "NedimFilipovic",
   "repository": {
     "type": "git",
     "url": "https://github.com/needimf/component-autocomplete"
   },
   "bugs": {
     "url": "https://github.com/needimf/component-autocomplete/issues",
-    "email": "nedim.filipovic@payclearly.com"
+    "email": "nedim.filipovic@gmail.com"
   },
   "engines": {
     "vscode": "^1.19.0"
