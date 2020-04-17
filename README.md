@@ -8,6 +8,10 @@ This extension is meant to be used with any React frontend filesystem that hosts
 
 ## Installation
 
+### Visual Studio Marketplace
+  1. Click install
+
+### Github
   1. Fork/copy this repo
   2. Install the Visual Studio Code Extension Manager (vsce) locally `npm i vsce` or globally `npm i vsce -g`
   3. Build the extension locally `vsce package`
